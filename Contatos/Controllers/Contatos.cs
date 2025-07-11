@@ -42,6 +42,7 @@ namespace Contatos.Controllers
                 _contatoRepositorio.Apagar(id);
                 TempData["okMsg"] = "Contato deletado com sucesso";
                 return RedirectToAction("Index");
+
             }
             catch (Exception erro)
             {
