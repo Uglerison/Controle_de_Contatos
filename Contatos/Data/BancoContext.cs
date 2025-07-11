@@ -8,5 +8,6 @@ namespace Contatos.Data
         }
 
         public DbSet<ContatoModel> TblContatos { get; set; }
+        public DbSet<UsuarioModel> TblUsuarios { get; set; }
     }
 }
