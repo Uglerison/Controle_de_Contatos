@@ -1,0 +1,48 @@
+﻿@using Contatos.Enums
+@model UsuarioModel
+@{
+    ViewData["Title"] = "Editar Usuario";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Editar Usuario</h1>
+</div>
+
+<form asp-controller="Usuarios" asp-action="Alterar" method="post">
+
+    <input type="hidden" asp-for="Id" />
+
+    <div class="mb-3">
+        <label for="Email" class="form-label">Email</label>
+        <input type="email" asp-for="Email" class="form-control" id="exampleInputEmail1" placeholder="Digite o novo email">
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label for="Nome" class="form-label">Nome</label>
+        <input type="text" asp-for="Name" class="form-control" id="exampleInputPassword1" placeholder="Digite o novo nome">
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label for="Login" class="form-label">Login</label>
+        <input type="tel" asp-for="Login" class="form-control" id="exampleInputPassword1" placeholder="Digite o novo Login">
+        <span asp-validation-for="Login" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label for="Password" class="form-label">Senha</label>
+        <input type="password" asp-for="Password" class="form-control" id="exampleInputPassword1" placeholder="Digite a nova Senha">
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Perfil do Usuario</label>
+        <select class="form-control" asp-for="Perfil">
+            <option selected value="0">Selecione</option>
+            <option value="@PerfilEnum.Admin">Administrador</option>
+            <option value="@PerfilEnum.Padrao">Padrão</option>
+        </select>
+    </div>
+    <br />
+
+    <button type="submit" class="btn btn-outline-primary">Editar</button>
+    <a class="btn btn-outline-secondary" asp-controller="Usuarios" asp-action="Index" role="button">Voltar</a>
+</form>
